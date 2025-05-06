@@ -1,0 +1,68 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+Documentation	Testing the sign_up functionality. Test scenario with valid and invalid credentials.
+
+Pre Condition	Open Browser
+Post Condition	Close All Browsers
+Tags sign_up
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+Sign_up_Url= https://gitlab.com/users/sign_up
+First_name= Removed
+Last_name=	Removed
+Username= Removed
+Email= Removed
+Password= Removed
+
+Empty_password= 
+Invalid email= fake.email
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# Positive Test
+
+Register user with valid credentials
+	Navigate To sign up Page	Sign_up_Url
+    Accept all cookies	Yes
+	Input	First_name 
+	Input	Last_name
+	Input	Username
+	Input	Email
+	Input	Password 
+	I agree that GitLab can contact me by email or telephone about its product, services, or events.	No
+    Submit Sign Up Form
+    Verify	identity_verification page
+
+# Negative Tests  
+
+Register user with empty password
+	Navigate To sign up Page	Sign_up_Url
+    Accept all cookies	Yes
+	Input	First_name 
+	Input	Last_name
+	Input	Username
+	Input	Empty_password
+	Input	Password 
+	I agree that GitLab can contact me by email or telephone about its product, services, or events.	No
+    Submit Sign Up Form
+    Verify Page Should Contain Invalid password.	
+
+Register user with invalid email
+	Navigate To sign up Page	Sign_up_Url
+    Accept all cookies	Yes
+	Input	First_name 
+	Input	Last_name
+	Input	Username
+	Input	Invalid email
+	Input	Password 
+	I agree that GitLab can contact me by email or telephone about its product, services, or events.	No
+    Submit Sign Up Form
+    Verify	Please provide a valid email address.

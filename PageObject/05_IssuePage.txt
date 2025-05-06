@@ -1,0 +1,49 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+Pre Condition	Open Browser, Logged In, Accept all cookies, Project must be created by the user before
+Post Condition	Close All Browsers
+Tags	Issue, Issues, CRUD
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+New_Issue_URL= https://gitlab.com/REMOVED/REMOVED/-/issues/new
+Issues_URL= https://gitlab.com/REMOVED/blank-project/-/issues
+Title_1= Test issue
+Title_2= Test issue 2
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# Positive Tests
+
+Create issue
+	Navigate New_Issue_URL
+	Input Title_2
+	Submit Create issue
+	Verify Title page
+
+Update name of issue
+	Navigate Issues_URL
+	Select Select a pre-created issue, Edit
+	Input Title_2
+	Submit	Save changes
+	Verify	Title_2
+
+Create second issue with previously updated name
+	Navigate New_Issue_URL
+	Input Title_2
+	Submit Create issue
+	Verify Title page
+
+Delete first issue
+	Navigate Issues_URL
+	Select Title_2 #smallest n, select ..., Delete issue
+	Submit Delete issue
+	Verify Title_2 #smallest n is deleted

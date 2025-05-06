@@ -1,0 +1,66 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+Documentation	CRUD - Testing project management functions.
+
+Pre Condition	Open Browser, Logged In, Accept all cookies
+Post Condition	Close All Browsers
+Tags CRUD, Create, Update, Read, Delete, Project
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+New Project URL= https://gitlab.com/projects/new
+Project name= Project n (number)
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+
+# Positive Tests
+
+Create blank project
+	Navigate	New Project URL
+	Select	Create blank project
+	Input	Project name
+	Submit Create project
+	Verify project page
+
+Create template project 
+	Navigate	New Project URL
+	Select	Create from template
+	Select	Use template on any template
+	Input	Project name
+	Submit
+	Verify project page
+
+Update name of template project
+	Navigate	project page
+	Select	Settings, General
+	Input	Project name
+	Submit	Save changes
+	Verify General Settings, Project name
+
+Delete template project
+	Navigate	project page
+	Select	Settings, General, Advanced, Delete project
+	Input	Enter the following to confirm: Write the confirmation text exactly as it is shown.
+	Submit	Yes, delete project
+	Verify "This project is pending deletion, and will be deleted on XXXX-XX-XX. Repository and other project resources are read-only."
+	
+# Negative Tests
+
+Create a blank project with the previous same name
+	Navigate	New Project URL
+	Select	Create blank project
+	Input	Used Project name 
+	Submit Create project
+	Verify The form contains the following errors:
+			Project namespace name has already been taken
+			Name has already been taken
+			Path has already been taken
