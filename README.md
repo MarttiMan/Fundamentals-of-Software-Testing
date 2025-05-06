@@ -1,6 +1,7 @@
 # Software Testing Assignment – GitLab Web App
 
 Student Name: Martti Koivisto
+
 Course: Fundamentals of Software Testing
 School: Laurea University of Applied Sciences  
 Assignment: Assignment Testing Project 
