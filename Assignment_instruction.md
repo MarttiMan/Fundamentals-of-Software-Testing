@@ -19,12 +19,12 @@ Last modified: 05.04.2024
   - [x] 02_ProjectPageReport
 - [x] Write Learning Reflection page
   - [x] 01_LearningReflection.md
-- [ ] Now you have completed your assignment it's time for you to share your assignment in github and Canvas.
-- [ ] Share your project on **GitHub**
+- [x] Now you have completed your assignment it's time for you to share your assignment in github and Canvas.
+- [x] Share your project on **GitHub**
   - [x] Create a new repository
   - [x] Add a README file and write your full name as seen on Laurea Pakki or Canvas, because your GitHub username may be different than your original name so it is easier for the teacher to recognize you and your assignment work.
-  - [ ] Upload your all project files and folders, using the Add file drop-down, click Upload files. Drag and drop the file or folder you'd like to upload to your repository
-  - [ ] **Do not upload the ZIP file on GitHub**
+  - [x] Upload your all project files and folders, using the Add file drop-down, click Upload files. Drag and drop the file or folder you'd like to upload to your repository
+  - [x] **Do not upload the ZIP file on GitHub**
   - [ ] Share your GitHub repository link in the **Canvas Assignment comments**.
 - [ ] Upload your project on **Cavas**
   - [ ] When you complete your testing assignment, Export it as a Zip file
